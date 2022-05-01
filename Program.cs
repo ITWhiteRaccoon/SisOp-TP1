@@ -27,14 +27,9 @@ namespace SisOp_TP1
             {
                 Console.Write(
                     $"Fonte: {processo.Fonte}, InstanteCarga: {processo.InstanteCarga}");
-                if (escalonador.PoliticaEscalonamento == Escalonamento.RoundRobin)
-                {
-                    Console.WriteLine($", Quantum: {processo.Quantum}");
-                }
-                else
-                {
-                    Console.WriteLine($", Prioridade: {processo.Prioridade}");
-                }
+                Console.WriteLine(escalonador.PoliticaEscalonamento == Escalonamento.RoundRobin
+                    ? $", Quantum: {processo.Quantum}"
+                    : $", Prioridade: {processo.Prioridade}");
             }
         }
     }
