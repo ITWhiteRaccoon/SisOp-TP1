@@ -6,10 +6,12 @@ public class Processo
     public int InstanteCarga { get; set; }
     public Prioridade? Prioridade { get; set; }
     public int? Quantum { get; set; }
+    public PCB Pcb { get; set; }
 
     public Processo()
     {
         Fonte = "";
+        Pcb = new PCB();
     }
 
     public override string ToString()

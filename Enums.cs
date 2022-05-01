@@ -1,5 +1,18 @@
 ﻿namespace SisOp_TP1;
 
+public enum Syscall
+{
+    Exit = 0,
+    Print = 1,
+    Read = 2
+}
+
+public enum ModoEnderecamento
+{
+    Imediato,
+    Direto
+}
+
 public enum Escalonamento
 {
     SemPreempcao,
@@ -9,12 +22,12 @@ public enum Escalonamento
 
 public enum Prioridade
 {
-    Alta=0,
-    Media=1,
-    Baixa=2
+    Alta = 0,
+    Media = 1,
+    Baixa = 2
 }
 
-public enum Instrucoes
+public enum Mnemonico
 {
     ADD,
     SUB,

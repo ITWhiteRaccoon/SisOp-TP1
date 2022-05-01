@@ -23,6 +23,7 @@ namespace SisOp_TP1
 
         private static void IniciarPrograma(Escalonador escalonador)
         {
+            escalonador.CarregarProcessos();
             foreach (Processo processo in escalonador.Processos)
             {
                 Console.WriteLine(processo);
