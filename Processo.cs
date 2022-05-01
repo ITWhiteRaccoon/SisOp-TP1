@@ -11,4 +11,20 @@ public class Processo
     {
         Fonte = "";
     }
+
+    public override string ToString()
+    {
+        var str = $"Fonte: {Fonte}, InstanteCarga: {InstanteCarga}";
+        if (Quantum != null)
+        {
+            str += $", Quantum: {Quantum}";
+        }
+
+        if (Prioridade != null)
+        {
+            str += $", Prioridade: {Prioridade}";
+        }
+
+        return str;
+    }
 }

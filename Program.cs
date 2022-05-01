@@ -25,11 +25,7 @@ namespace SisOp_TP1
         {
             foreach (Processo processo in escalonador.Processos)
             {
-                Console.Write(
-                    $"Fonte: {processo.Fonte}, InstanteCarga: {processo.InstanteCarga}");
-                Console.WriteLine(escalonador.PoliticaEscalonamento == Escalonamento.RoundRobin
-                    ? $", Quantum: {processo.Quantum}"
-                    : $", Prioridade: {processo.Prioridade}");
+                Console.WriteLine(processo);
             }
         }
     }
