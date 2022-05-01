@@ -1,3 +1,41 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
-Console.WriteLine("Hello, World!");
+namespace SisOp_TP1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            if (args.Length <= 0)
+            {
+                Console.WriteLine("Indique o arquivo de configuração na pasta Input");
+                Console.WriteLine("Exemplo de chamada: Escalonador config.yaml");
+            }
+
+            TextReader file = new StreamReader($"Input/{args[0]}");
+            Deserializer? deserializer = new DeserializerBuilder()
+                .WithNamingConvention(new CamelCaseNamingConvention())
+                .Build();
+            var config = deserializer.Deserialize<Escalonador>(file);
+            IniciarPrograma(config);
+        }
+
+        private static void IniciarPrograma(Escalonador escalonador)
+        {
+            foreach (Processo processo in escalonador.Processos)
+            {
+                Console.Write(
+                    $"Fonte: {processo.Fonte}, InstanteCarga: {processo.InstanteCarga}");
+                if (escalonador.PoliticaEscalonamento == Escalonamento.RoundRobin)
+                {
+                    Console.WriteLine($", Quantum: {processo.Quantum}");
+                }
+                else
+                {
+                    Console.WriteLine($", Prioridade: {processo.Prioridade}");
+                }
+            }
+        }
+    }
+}
