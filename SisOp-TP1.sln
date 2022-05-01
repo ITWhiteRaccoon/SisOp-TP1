@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisOp-TP1", "SisOp-TP1.csproj", "{B12FDA66-F042-42F7-8DC8-BE628E172FB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B12FDA66-F042-42F7-8DC8-BE628E172FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12FDA66-F042-42F7-8DC8-BE628E172FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12FDA66-F042-42F7-8DC8-BE628E172FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12FDA66-F042-42F7-8DC8-BE628E172FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
