@@ -13,3 +13,18 @@ public enum Prioridade
     Media=1,
     Baixa=2
 }
+
+public enum Instrucoes
+{
+    ADD,
+    SUB,
+    MULT,
+    DIV,
+    LOAD,
+    STORE,
+    BRANY,
+    BRPOS,
+    BRZERO,
+    BRNEG,
+    SYSCALL
+}
