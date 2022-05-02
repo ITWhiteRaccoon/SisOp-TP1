@@ -14,7 +14,7 @@ namespace SisOp_TP1
             }
 
             TextReader file = new StreamReader($"Input/{args[0]}");
-            Deserializer? deserializer = new DeserializerBuilder()
+            var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(new CamelCaseNamingConvention())
                 .Build();
             var config = deserializer.Deserialize<Escalonador>(file);
@@ -23,8 +23,8 @@ namespace SisOp_TP1
 
         private static void IniciarPrograma(Escalonador escalonador)
         {
-            escalonador.CarregarProcessos();
-            foreach (Processo processo in escalonador.Processos)
+            Util.CarregarProcessos(escalonador.ProcessosLidos);
+            foreach (var processo in escalonador.ProcessosLidos)
             {
                 Console.WriteLine(processo);
             }
