@@ -31,4 +31,19 @@ public class EscalonadorComPreempcao
     public void Iniciar(List<Programa> programasLidos)
     {
     }
+
+    public ProcessoPrioridade checarInstante()
+    {
+        ProcessoPrioridade resultado = null;
+        foreach (var processoBloqueado in _bloqueados)
+        {
+            if (processoBloqueado.InstanteCarga == _tempo)
+            {
+                //remove from bloqueados
+                //add in prontos
+            }
+        }
+
+        return resultado;
+    }
 }
