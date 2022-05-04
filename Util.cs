@@ -4,9 +4,9 @@ namespace SisOp_TP1;
 
 public class Util
 {
-    public static PCB CarregarProcesso(Programa programaLido)
+    public static Pcb CarregarProcesso(Programa programaLido)
     {
-        var pcb = new PCB();
+        var pcb = new Pcb();
         var linhas = File.ReadAllText($"Input/{programaLido.Fonte}");
         var code = Regex.Split(Regex.Match(linhas, @"\.code((?:.|\n)*)\.endcode").Groups[1].Value, "\n")
             .Where(x => !string.IsNullOrWhiteSpace(x));
@@ -37,11 +37,11 @@ public class Util
                 };
                 switch (instrucao.Mnemonico)
                 {
-                    case Mnemonico.ADD:
-                    case Mnemonico.SUB:
-                    case Mnemonico.MULT:
-                    case Mnemonico.DIV:
-                    case Mnemonico.LOAD:
+                    case Mnemonico.Add:
+                    case Mnemonico.Sub:
+                    case Mnemonico.Mult:
+                    case Mnemonico.Div:
+                    case Mnemonico.Load:
                         if (strSeparada[1][0] == '#')
                         {
                             instrucao.ModoEnderecamento = ModoEnderecamento.Imediato;
@@ -54,14 +54,14 @@ public class Util
                         }
 
                         break;
-                    case Mnemonico.STORE:
-                    case Mnemonico.BRANY:
-                    case Mnemonico.BRPOS:
-                    case Mnemonico.BRZERO:
-                    case Mnemonico.BRNEG:
+                    case Mnemonico.Store:
+                    case Mnemonico.Brany:
+                    case Mnemonico.Brpos:
+                    case Mnemonico.Brzero:
+                    case Mnemonico.Brneg:
                         instrucao.Endereco = strSeparada[1];
                         break;
-                    case Mnemonico.SYSCALL:
+                    case Mnemonico.Syscall:
                         instrucao.Valor = Convert.ToInt32(strSeparada[1]);
                         break;
                     default:

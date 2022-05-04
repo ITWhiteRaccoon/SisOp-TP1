@@ -5,7 +5,7 @@ namespace SisOp_TP1;
 public class ProcessoQuantum : IComparable<ProcessoQuantum>
 {
     public int InstanteCarga { get; }
-    public PCB Pcb { get; }
+    public Pcb Pcb { get; }
     public int Quantum { get; set; }
 
     public ProcessoQuantum(Programa programaLido)

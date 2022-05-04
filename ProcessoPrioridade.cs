@@ -3,7 +3,7 @@
 public class ProcessoPrioridade : IComparable<ProcessoPrioridade>
 {
     public int InstanteCarga { get; }
-    public PCB Pcb { get; }
+    public Pcb Pcb { get; }
     public Prioridade Prioridade { get; set; }
 
     public ProcessoPrioridade(Programa programaLido)

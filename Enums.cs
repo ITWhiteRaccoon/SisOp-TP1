@@ -29,15 +29,15 @@ public enum Prioridade
 
 public enum Mnemonico
 {
-    ADD,
-    SUB,
-    MULT,
-    DIV,
-    LOAD,
-    STORE,
-    BRANY,
-    BRPOS,
-    BRZERO,
-    BRNEG,
-    SYSCALL
+    Add,
+    Sub,
+    Mult,
+    Div,
+    Load,
+    Store,
+    Brany,
+    Brpos,
+    Brzero,
+    Brneg,
+    Syscall
 }

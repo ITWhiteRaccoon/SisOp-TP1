@@ -5,32 +5,44 @@ namespace SisOp_TP1;
 public class EscalonadorSemPreempcao
 {
     private int _tempo;
-    private SortedSet<ProcessoPrioridade> Prontos;
-    private SortedSet<ProcessoPrioridade> Executando;
-    private SortedSet<ProcessoPrioridade> Bloqueados;
-    private SortedSet<ProcessoPrioridade> Finalizados;
+    private SortedSet<ProcessoPrioridade> _prontos;
+    private SortedSet<ProcessoPrioridade> _executando;
+    private SortedSet<ProcessoPrioridade> _bloqueados;
+    private SortedSet<ProcessoPrioridade> _finalizados;
+    private Processador _processador;
 
     public EscalonadorSemPreempcao(IEnumerable<Programa> programasLidos)
     {
-        Prontos = new SortedSet<ProcessoPrioridade>();
-        Executando = new SortedSet<ProcessoPrioridade>();
-        Bloqueados = new SortedSet<ProcessoPrioridade>();
-        Finalizados = new SortedSet<ProcessoPrioridade>();
+        _processador = new Processador();
+        _prontos = new SortedSet<ProcessoPrioridade>();
+        _executando = new SortedSet<ProcessoPrioridade>();
+        _bloqueados = new SortedSet<ProcessoPrioridade>();
+        _finalizados = new SortedSet<ProcessoPrioridade>();
         foreach (var programa in programasLidos)
         {
             var processo = new ProcessoPrioridade(programa);
             if (processo.InstanteCarga > 0)
             {
-                Bloqueados.Add(processo);
+                _bloqueados.Add(processo);
             }
             else
             {
-                Prontos.Add(processo);
+                _prontos.Add(processo);
             }
         }
     }
 
     public void Iniciar(List<Programa> programasLidos)
     {
+        _tempo = 0;
+        while (true)
+        {
+            if (_executando.Count<=0)
+            {
+                
+            }
+
+            _tempo++;
+        }
     }
 }
