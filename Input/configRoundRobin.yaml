@@ -1,6 +1,6 @@
 ﻿politicaEscalonamento: RoundRobin
 
-processos:
+programas:
   - fonte: prog1.txt
     instanteCarga: 10
     quantum: 1

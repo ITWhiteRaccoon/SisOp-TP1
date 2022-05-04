@@ -3,7 +3,7 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace SisOp_TP1
 {
-    public class Program
+    public class App
     {
         public static void Main(string[] args)
         {
@@ -17,17 +17,7 @@ namespace SisOp_TP1
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(new CamelCaseNamingConvention())
                 .Build();
-            var config = deserializer.Deserialize<Escalonador>(file);
-            IniciarPrograma(config);
-        }
-
-        private static void IniciarPrograma(Escalonador escalonador)
-        {
-            Util.CarregarProcessos(escalonador.ProcessosLidos);
-            foreach (var processo in escalonador.ProcessosLidos)
-            {
-                Console.WriteLine(processo);
-            }
+            var config = deserializer.Deserialize<ArquivoConfiguracao>(file);
         }
     }
 }

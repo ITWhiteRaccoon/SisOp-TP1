@@ -1,6 +1,6 @@
 ﻿politicaEscalonamento: SemPreempcao
 
-processos:
+programas:
   - fonte: prog1.txt
     instanteCarga: 10
     prioridade: 0
