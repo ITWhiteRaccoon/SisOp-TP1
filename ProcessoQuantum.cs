@@ -1,11 +1,11 @@
 ﻿using System.Text;
-using System.Xml;
 using SisOp_TP1.Config;
 
 namespace SisOp_TP1;
 
 public class ProcessoQuantum : IComparable<ProcessoQuantum>
 {
+    public int Pid { get; }
     public int InstanteCarga { get; }
     public int? InstanteDesbloquear { get; set; }
     public Pcb Pcb { get; }
@@ -16,6 +16,7 @@ public class ProcessoQuantum : IComparable<ProcessoQuantum>
 
     public ProcessoQuantum(Programa programaLido)
     {
+        Pid = GeradorPid.GerarProximo();
         TempoCriacao = 0;
         TempoEspera = 0;
         TempoProcessando = 0;
@@ -35,6 +36,7 @@ public class ProcessoQuantum : IComparable<ProcessoQuantum>
     public override string ToString()
     {
         var sb = new StringBuilder();
+        sb.Append($"Pid:{Pid}");
         sb.Append($"InstanteCarga:{InstanteCarga},InstanteDesbloquear{InstanteDesbloquear},Quantum{Quantum}");
         sb.Append($",TurnaroundTime:{TempoCriacao},WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando}");
         sb.Append($",PCB:{Pcb}");

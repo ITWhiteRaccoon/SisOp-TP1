@@ -3,6 +3,9 @@
 programas:
   - fonte: prog1.txt
     instanteCarga: 10
+    prioridade: 1
+  - fonte: prog1.txt
+    instanteCarga: 11
     prioridade: 0
   - fonte: prog2.txt
     instanteCarga: 20

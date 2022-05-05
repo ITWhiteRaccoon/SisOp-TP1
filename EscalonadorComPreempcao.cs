@@ -5,20 +5,20 @@ namespace SisOp_TP1;
 
 public class EscalonadorComPreempcao
 {
-    private int _tempoIdle;
     private int _tempo;
-    private readonly SortedSet<ProcessoPrioridade> _prontos;
-    private readonly SortedSet<ProcessoPrioridade> _bloqueados;
-    private readonly SortedSet<ProcessoPrioridade> _finalizados;
+    private int _tempoIdle;
     private ProcessoPrioridade? _executando;
     private readonly Processador _processador;
+    private readonly List<ProcessoPrioridade> _prontos;
+    private readonly List<ProcessoPrioridade> _bloqueados;
+    private readonly List<ProcessoPrioridade> _finalizados;
 
     public EscalonadorComPreempcao(IEnumerable<Programa> programasLidos)
     {
         _processador = new Processador();
-        _prontos = new SortedSet<ProcessoPrioridade>();
-        _bloqueados = new SortedSet<ProcessoPrioridade>();
-        _finalizados = new SortedSet<ProcessoPrioridade>();
+        _prontos = new List<ProcessoPrioridade>();
+        _bloqueados = new List<ProcessoPrioridade>();
+        _finalizados = new List<ProcessoPrioridade>();
         foreach (var programa in programasLidos)
         {
             var processo = new ProcessoPrioridade(programa);
@@ -29,6 +29,7 @@ public class EscalonadorComPreempcao
             else
             {
                 _prontos.Add(processo);
+                _prontos.Sort();
             }
         }
     }
@@ -44,7 +45,7 @@ public class EscalonadorComPreempcao
             {
                 if (_prontos.Count >= 1) //Tem pronto
                 {
-                    _executando = _prontos.Min;
+                    _executando = _prontos.Min();
                     _prontos.Remove(_executando);
 
                     LerContextoPcb();
@@ -59,12 +60,13 @@ public class EscalonadorComPreempcao
 
             if (_prontos.Count >= 1)
             {
-                var processoPrioritario = _prontos.Min;
-                if (processoPrioritario?.Prioridade > _executando.Prioridade)
+                var processoPrioritario = _prontos.Min();
+                if (processoPrioritario?.Prioridade < _executando.Prioridade)
                 {
                     GravarContextoPcb();
 
                     _prontos.Add(_executando);
+                    _prontos.Sort();
                     _executando = processoPrioritario;
                     _prontos.Remove(processoPrioritario);
 
@@ -72,11 +74,11 @@ public class EscalonadorComPreempcao
                 }
             }
 
-            SomarTempoEspera();
-
             _processador.ExecutarInstrucao(_executando.Pcb, out var finalizado, out var bloquear);
-            _executando.TempoProcessando++;
+
+            SomarTempoEspera();
             _tempo++;
+            _executando.TempoProcessando++;
 
             if (finalizado)
             {
@@ -123,6 +125,7 @@ public class EscalonadorComPreempcao
             _prontos.Add(processo);
             _bloqueados.Remove(processo);
         }
+        _prontos.Sort();
     }
 
     private void SomarTempoEspera()

@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using SisOp_TP1.Config;
+﻿using SisOp_TP1.Config;
 
 namespace SisOp_TP1;
 

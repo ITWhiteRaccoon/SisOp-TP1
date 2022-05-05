@@ -5,6 +5,7 @@ namespace SisOp_TP1;
 
 public class ProcessoPrioridade : IComparable<ProcessoPrioridade>
 {
+    public int Pid { get; }
     public int InstanteCarga { get; }
     public int? InstanteDesbloquear { get; set; }
     public Pcb Pcb { get; }
@@ -15,6 +16,7 @@ public class ProcessoPrioridade : IComparable<ProcessoPrioridade>
 
     public ProcessoPrioridade(Programa programaLido)
     {
+        Pid = GeradorPid.GerarProximo();
         TempoCriacao = 0;
         TempoEspera = 0;
         TempoProcessando = 0;
@@ -34,6 +36,7 @@ public class ProcessoPrioridade : IComparable<ProcessoPrioridade>
     public override string ToString()
     {
         var sb = new StringBuilder();
+        sb.Append($"Pid:{Pid}");
         sb.Append($"InstanteCarga:{InstanteCarga},InstanteDesbloquear{InstanteDesbloquear},Prioridade{Prioridade}");
         sb.Append($",TurnaroundTime:{TempoCriacao},WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando}");
         sb.Append($",PCB:{Pcb}");

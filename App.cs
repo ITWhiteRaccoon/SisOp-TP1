@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using SisOp_TP1.Config;
+﻿using SisOp_TP1.Config;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -33,12 +32,14 @@ namespace SisOp_TP1
                 {
                     var esc = new EscalonadorSemPreempcao(config.Programas);
                     esc.Iniciar();
+                    Console.WriteLine(esc.ToString());
                     break;
                 }
                 case Escalonamento.RoundRobin:
                 {
                     var esc = new EscalonadorRoundRobin(config.Programas);
                     esc.Iniciar();
+                    Console.WriteLine(esc.ToString());
                     break;
                 }
             }
