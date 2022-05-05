@@ -37,9 +37,8 @@ public class ProcessoPrioridade : IComparable<ProcessoPrioridade>
     {
         var sb = new StringBuilder();
         sb.Append($"Pid:{Pid},");
-        sb.Append($"InstanteCarga:{InstanteCarga},InstanteDesbloquear{InstanteDesbloquear},Prioridade{Prioridade}");
-        sb.Append($",TurnaroundTime:{TempoCriacao},WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando}");
-        sb.Append($",PCB:{Pcb}");
+        sb.Append($"InstanteCarga:{InstanteCarga},Prioridade{Prioridade},TurnaroundTime:{TempoCriacao}");
+        sb.Append($",WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando},PCB:{Pcb}");
         return sb.ToString();
     }
 }

@@ -37,9 +37,8 @@ public class ProcessoQuantum : IComparable<ProcessoQuantum>
     {
         var sb = new StringBuilder();
         sb.Append($"Pid:{Pid},");
-        sb.Append($"InstanteCarga:{InstanteCarga},InstanteDesbloquear{InstanteDesbloquear},Quantum{Quantum}");
-        sb.Append($",TurnaroundTime:{TempoCriacao},WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando}");
-        sb.Append($",PCB:{Pcb}");
+        sb.Append($"InstanteCarga:{InstanteCarga},Quantum:{Quantum},TurnaroundTime:{TempoCriacao}");
+        sb.Append($",WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando},PCB:{Pcb}");
         return sb.ToString();
-       }
+    }
 }
