@@ -36,7 +36,7 @@ public class ProcessoPrioridade : IComparable<ProcessoPrioridade>
     public override string ToString()
     {
         var sb = new StringBuilder();
-        sb.Append($"Pid:{Pid}");
+        sb.Append($"Pid:{Pid},");
         sb.Append($"InstanteCarga:{InstanteCarga},InstanteDesbloquear{InstanteDesbloquear},Prioridade{Prioridade}");
         sb.Append($",TurnaroundTime:{TempoCriacao},WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando}");
         sb.Append($",PCB:{Pcb}");

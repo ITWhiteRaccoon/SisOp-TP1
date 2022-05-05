@@ -10,9 +10,9 @@ public class ProcessoQuantum : IComparable<ProcessoQuantum>
     public int? InstanteDesbloquear { get; set; }
     public Pcb Pcb { get; }
     public int Quantum { get; set; }
-    public int TempoCriacao { get; }
-    public int TempoEspera { get; }
-    public int TempoProcessando { get; }
+    public int TempoCriacao { get; set; }
+    public int TempoEspera { get; set; }
+    public int TempoProcessando { get; set; }
 
     public ProcessoQuantum(Programa programaLido)
     {
@@ -36,10 +36,10 @@ public class ProcessoQuantum : IComparable<ProcessoQuantum>
     public override string ToString()
     {
         var sb = new StringBuilder();
-        sb.Append($"Pid:{Pid}");
+        sb.Append($"Pid:{Pid},");
         sb.Append($"InstanteCarga:{InstanteCarga},InstanteDesbloquear{InstanteDesbloquear},Quantum{Quantum}");
         sb.Append($",TurnaroundTime:{TempoCriacao},WaitingTime:{TempoEspera},ProcessingTime:{TempoProcessando}");
         sb.Append($",PCB:{Pcb}");
         return sb.ToString();
-    }
+       }
 }

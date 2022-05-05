@@ -3,10 +3,10 @@
 programas:
   - fonte: prog1.txt
     instanteCarga: 10
-    prioridade: 1
+    quantum: 2
   - fonte: prog1.txt
     instanteCarga: 11
-    prioridade: 0
+    quantum: 3
   - fonte: prog2.txt
     instanteCarga: 20
-    prioridade: 1
+    quantum: 5

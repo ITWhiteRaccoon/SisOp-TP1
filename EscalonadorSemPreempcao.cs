@@ -85,12 +85,6 @@ public class EscalonadorSemPreempcao
         }
     }
 
-    private void GravarContextoPcb()
-    {
-        _executando.Pcb.Acc = _processador.Acc;
-        _executando.Pcb.Pc = _processador.Pc;
-    }
-
     private void LerContextoPcb()
     {
         _processador.Acc = _executando.Pcb.Acc;
@@ -130,7 +124,7 @@ public class EscalonadorSemPreempcao
     {
         var sb = new StringBuilder();
         sb.AppendLine($"Tempo:{_tempo},TempoIdle:{_tempoIdle}");
-        sb.AppendLine($"Processos finalizados:");
+        sb.AppendLine("Processos finalizados:");
         foreach (var processo in _finalizados)
         {
             sb.AppendLine(processo.ToString());
