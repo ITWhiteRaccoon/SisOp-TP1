@@ -1,4 +1,5 @@
 ﻿using System.Reflection.Metadata;
+using SisOp_TP1.Config;
 
 namespace SisOp_TP1;
 
@@ -32,15 +33,12 @@ public class EscalonadorSemPreempcao
         }
     }
 
-    public void Iniciar(List<Programa> programasLidos)
+    public void Iniciar()
     {
         _tempo = 0;
         while (true)
         {
-            if (_executando.Count<=0)
-            {
-                
-            }
+            if (_executando.Count <= 0) { }
 
             _tempo++;
         }

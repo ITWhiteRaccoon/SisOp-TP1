@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using SisOp_TP1.Config;
 
 namespace SisOp_TP1;
 
@@ -42,6 +43,7 @@ public class Util
                     case Mnemonico.Mult:
                     case Mnemonico.Div:
                     case Mnemonico.Load:
+                    {
                         if (strSeparada[1][0] == '#')
                         {
                             instrucao.ModoEnderecamento = ModoEnderecamento.Imediato;
@@ -54,21 +56,28 @@ public class Util
                         }
 
                         break;
+                    }
                     case Mnemonico.Store:
-                    case Mnemonico.Brany:
-                    case Mnemonico.Brpos:
-                    case Mnemonico.Brzero:
-                    case Mnemonico.Brneg:
+                    case Mnemonico.BrAny:
+                    case Mnemonico.BrPos:
+                    case Mnemonico.BrZero:
+                    case Mnemonico.BrNeg:
+                    {
                         instrucao.Endereco = strSeparada[1];
                         break;
+                    }
                     case Mnemonico.Syscall:
+                    {
                         instrucao.Valor = Convert.ToInt32(strSeparada[1]);
                         break;
+                    }
                     default:
+                    {
                         throw new ArgumentOutOfRangeException();
+                    }
                 }
 
-                pcb.Codigo.Add(instrucao);
+                pcb.Instrucoes.Add(instrucao);
                 linhaCode++;
             }
         }

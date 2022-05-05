@@ -35,9 +35,9 @@ public enum Mnemonico
     Div,
     Load,
     Store,
-    Brany,
-    Brpos,
-    Brzero,
-    Brneg,
+    BrAny,
+    BrPos,
+    BrZero,
+    BrNeg,
     Syscall
 }

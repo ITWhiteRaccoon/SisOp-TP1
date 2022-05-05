@@ -1,4 +1,4 @@
-﻿namespace SisOp_TP1;
+﻿namespace SisOp_TP1.Config;
 
 public class Programa
 {

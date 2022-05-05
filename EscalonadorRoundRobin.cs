@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices.ComTypes;
+using SisOp_TP1.Config;
 
 namespace SisOp_TP1;
 
@@ -9,9 +10,11 @@ public class EscalonadorRoundRobin
     private Queue<ProcessoQuantum> _executando;
     private Queue<ProcessoQuantum> _bloqueados;
     private Queue<ProcessoQuantum> _finalizados;
+    private Processador _processador;
 
     public EscalonadorRoundRobin(IEnumerable<Programa> programasLidos)
     {
+        _processador = new Processador();
         _prontos = new Queue<ProcessoQuantum>();
         _executando = new Queue<ProcessoQuantum>();
         _bloqueados = new Queue<ProcessoQuantum>();
@@ -30,10 +33,8 @@ public class EscalonadorRoundRobin
         }
     }
 
-    public void Iniciar(List<Programa> programasLidos)
+    public void Iniciar()
     {
-        while (true)
-        {
-        }
+        while (true) { }
     }
 }

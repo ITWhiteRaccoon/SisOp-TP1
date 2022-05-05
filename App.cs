@@ -1,4 +1,6 @@
-﻿using YamlDotNet.Serialization;
+﻿using System.Drawing;
+using SisOp_TP1.Config;
+using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
 namespace SisOp_TP1
@@ -18,6 +20,28 @@ namespace SisOp_TP1
                 .WithNamingConvention(new CamelCaseNamingConvention())
                 .Build();
             var config = deserializer.Deserialize<ArquivoConfiguracao>(file);
+            switch (config.PoliticaEscalonamento)
+            {
+                case Escalonamento.ComPreempcao:
+                {
+                    var esc = new EscalonadorComPreempcao(config.Programas);
+                    esc.Iniciar();
+                    Console.WriteLine(esc.ToString());
+                    break;
+                }
+                case Escalonamento.SemPreempcao:
+                {
+                    var esc = new EscalonadorSemPreempcao(config.Programas);
+                    esc.Iniciar();
+                    break;
+                }
+                case Escalonamento.RoundRobin:
+                {
+                    var esc = new EscalonadorRoundRobin(config.Programas);
+                    esc.Iniciar();
+                    break;
+                }
+            }
         }
     }
 }
